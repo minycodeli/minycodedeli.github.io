@@ -1,0 +1,517 @@
+@mixin sp
+  @media screen and (min-width: 375px)
+    @content
+
+@mixin tb
+  @media screen and (min-width: 768px)
+    @content
+
+@mixin pc
+  @media screen and (min-width: 1024px)
+    @content
+
+@mixin topc
+  @media screen and (min-width:768px) and ( max-width:1024px)
+    @content
+
+// *================================*
+// *============  ============*
+// *================================*
+
+///******▽  ▽******/
+///******▲  ▲******/
+
+// *================================*
+// *============ header ============*
+// *================================*
+#top
+  height: 62px
+  display: grid
+.header
+  &__nav
+    margin-left: 1.5rem
+    align-items: center
+
+  &__left
+    background: #393E46
+    font-size: 2.0rem
+    padding: 1.0rem 2.1rem
+    & h1
+      color: #fff
+      line-height: 2.0rem
+    & img
+      width: 120px
+
+  &__right
+    margin-right: 1.0rem
+    & a
+      font-size: 1.4rem
+    & a+a
+      margin-left: 3.0rem
+
+#mv
+  height: 600px
+  & img
+    object-fit: cover
+    height: 100%
+
+.section__mv
+  margin-bottom: 8.0rem
+
+@include tb
+  .header__nav
+    margin: 0 auto
+    width: 960px
+
+@include topc
+  .header__nav
+    width: 100%
+    margin-left: 1.0rem
+  .header__right
+    margin-right: 3.0rem
+
+///******▽ g-nav ▽******/
+///******▲ g-nav ▲******/
+
+// *================================*
+// *========== ハンバーガー ==========*
+// *================================*
+.header
+  &__menu
+    font-weight: bold
+    font-size: 1rem
+    z-index: 999
+    padding: 40px 58px 0 0
+  &__hamburger
+    width: 27px
+    height: 13px
+    cursor: pointer
+    margin: 0 auto
+  &__hamburger span
+    background: #1b1b1b
+    height: 2px
+    width: 100%
+
+.headerColor-default .header
+  &__hamburger span
+    background: #333
+
+  &__menu--txt
+    color: #333
+    text-align: center
+
+.header__hamburger.active span
+  background: #fff
+
+.header__hamburger.active .header__menu--txt
+  color: #fff
+
+.header__hamburger
+  &--top
+    top: 0
+    transition: .5s
+
+  &--middle
+    top: 42.5%
+    transition: .5s
+
+  &--bottom
+    bottom: 0
+    transition: .5s
+
+.header__hamburger.active .header__hamburger
+  &--top
+    transform: translateY(5px) rotate(30deg)
+
+  &--middle
+    display: none
+
+  &--bottom
+    transform: translateY(-6px) rotate(-30deg)
+
+///******▽ sp nav ▽******/
+.g-nav__bg
+  position: fixed
+  top: 0
+  right: -120%
+  width: 100%
+  height: 100vh
+  transition: all .5s
+
+  & .active
+    right: 0
+
+.g-nav__sp-ul
+  background: rgba(0, 153, 153, .9)
+  height: 100vh
+  margin: 0 0 0 auto
+  padding-top: 120px
+  text-align: center
+
+.g-nav__sp ul li a
+  height: 100%
+  display: block
+  color: #fff
+  margin-bottom: 20px
+
+@include tb
+  .g-nav__pc
+    display: none
+
+  .header__tel.pc
+    display: none
+
+  header
+    height: 80px
+    position: fixed
+    width: 100%
+    background: #fff
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12)
+
+  header .inner
+    padding: 0 5%
+
+  .header__txt
+    font-size: 1rem
+    left: 5%
+
+  header h1
+    min-width: auto
+    padding: 0
+    margin-right: 0
+
+  .header
+    &__flexwrap
+      display: flex
+      align-items: flex-start
+
+    &__flexright--sp
+      display: flex
+      align-items: center
+      margin-top: 10px
+
+    &__menu
+      padding: 20px 0 0 20px
+
+    &__tel
+      padding: 0 20px
+      background: none
+      margin: 0
+
+      & img
+        vertical-align: middle
+        width: 30px
+
+    &__contact
+      width: 50px
+      height: 50px
+
+      & img
+        vertical-align: middle
+        width: 30px
+        padding: 20px 0 0
+
+  .g-nav__toggle-nav
+    display: block
+
+@media screen and (max-width:559px)
+  .header__txt
+    display: none
+
+///******▲ sp nav ▲******/
+
+// *==========================*
+// *=========== fv ===========*
+// *==========================*
+.fv
+  position: relative
+
+  &__copy
+    position: absolute
+    transform: translate(-50%, -50%)
+    -webkit-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    z-index: 99
+    top: 60%
+    left: 50%
+
+///******▽ スライド slick ▽******/
+.slide-animation
+  animation: fadezoom 8s 0s forwards
+
+@keyframes fadezoom
+  0%
+    transform: scale(1)
+
+  100%
+    transform: scale(1.2)
+
+@include tb
+  .fv
+    margin-top: 60px
+
+    &__copy
+      width: 80%
+      left: 50%
+      top: 50%
+
+    & .slick01.sp
+      width: 100%
+
+.slick-dotted.slick-slider
+  margin-bottom: 0
+
+.slick-dots li button:before
+  content: "■"
+
+.slick-dots li.slick-active button:before
+  color: #009999
+///******▲ スライド slick ▲******/
+
+// *================================*
+// *============ footer ============*
+// *================================*
+footer
+  height: 21px
+  font-size: 1.4rem
+
+  & a
+    color: #fff
+
+  & p
+    font-size: 1.0rem
+
+.footer
+  &__logo
+    margin: -89px 0 54px -50px
+
+  &__flex-right
+    width: 58%
+
+  &__nav li:not(:last-child)
+    margin-bottom: 30px
+
+  &__copyright
+    background: #fff
+    text-align: center
+    line-height: 40px
+    height: 40px
+
+@include tb
+  .footer
+    &__logo
+      margin: -75px 0 54px -10px
+    &__nav
+      text-align: center
+      font-size: 1.4rem
+      display: block
+  footer ul li
+    &:not(:last-child)
+      border: none
+      padding: 0
+      margin-bottom: 20px
+    &:not(:first-child)
+      padding: 0
+
+@media screen and (max-width:599px)
+  footer
+    height: auto
+
+  .footer
+    &__logo
+      margin-top: -78px
+
+    &__flex-left
+      margin-bottom: 30px
+
+      & p
+        text-align: center
+
+    &__flex-right
+      width: 100%
+
+    &__nav
+      margin-bottom: 30px
+
+// *================================*
+// *=========== page top ===========*
+// *================================*
+
+#page-top
+  & a
+    position: fixed
+    bottom: 20px
+    right: 20px
+    padding: 10px
+    opacity: 0
+    white-space: nowrap
+    font-size: 1.2rem
+    text-align: center
+    width: 60px
+    height: 150px
+    border-radius: 5px
+
+  & img
+    display: block
+    margin: 0 auto
+
+  & .active a
+    opacity: 1
+
+// *================================*
+// *===== tablet / sp setting ======*
+// *================================*
+
+// *================================*
+// *=========== sp only ============*
+// *================================*
+
+@include sp
+
+// *================================*
+// *======= bread_crumb_list =======*
+// *================================*
+#sub_contents .bread_crumb
+  text-align: left
+  padding: 15px 0px 15px
+  max-width: 1100px
+  margin: 0 auto
+  font-size: 14px
+
+  &list
+    font-size: 14px
+    color: #888
+
+  & li
+    display: inline
+
+    & .current
+      font-weight: normal
+
+    & a
+      text-decoration: underline
+
+      &:hover
+        text-decoration: none
+
+  & li:after
+    content: 'ー'
+    padding-left: 10px
+
+    &:last-child:after
+      content: ''
+
+@include tb
+  #sub_contents .bread_crumb_list
+    margin-left: 15px
+
+// *================================*
+// *========= top contents =========*
+// *================================*
+.contents__ttl
+  font-size: 3.2rem
+  border-bottom: 0.1rem solid #383E45
+  display: inline-block
+  margin: 0 auto 60px
+
+///******▽ about ▽******/
+.section__topabout
+  margin-bottom: 10.0rem
+  & img
+    border-radius: 50%
+    width: 10.0rem
+
+.contents__txt
+  margin-top: 1.0rem
+  & span
+    font-weight: bold
+  & p
+    margin-top: 1.0rem
+    font-size: 1.4rem
+
+@include tb
+  .section__topabout
+    max-width: 530px
+  .contents__aboutlist
+    display: flex
+    align-items: center
+  .contents__txt
+    margin-left: 3.0rem
+///******▲ about ▲******/
+
+///******▽ bicycle ▽******/
+.section__topbicycle
+  margin-bottom: 14.0rem
+
+.contents__bicyclelist
+  & li+li
+    margin-top: 3.0rem
+
+.contents__img--push
+  text-align: center
+
+  & .post__ttl,.post__txt
+    margin-top: 1.0rem
+    font-size: 1.4rem
+    font-weight: 500
+
+  & .post__ttl
+    font-size: 1.6rem
+    font-weight: bold
+
+@include tb
+  .contents__bicyclelist
+    display: flex
+
+  .contents__bicyclelist
+    & li+li
+      margin-top: 0
+    & a+a
+      margin-left: 1.6rem
+
+///******▲ bicycle ▲******/
+
+// *==== Sub(Lower)Page setting ====*
+.section__subabout
+  margin: 0 auto
+  text-align: center
+  & img
+    width: 345px
+    margin-bottom: 3.0rem
+.contents__subabout
+  text-align: left
+  margin-bottom: 6.0rem
+  & h3
+    font-size: 2.1rem
+    margin-bottom: 3.0rem
+  &p
+    font-size: 1.4rem
+  & p+p
+    margin-top: 1.0rem
+
+.topbtn
+  margin-bottom: 26.0rem
+  & a:hover
+    opacity: 0.6
+
+@include pc
+  .section__subabout
+    & img
+      width: 840px
+      margin-top: 6.2rem
+  .contents__subabout
+    margin: 0 auto 6.0rem
+    width: 770px
+    & p+p
+      margin-top: 2.0rem
+
+@include topc
+  .section__subabout
+    & img
+      width: 80%
+      margin-top: 6.2rem
+  .contents__subabout
+    margin: 0 auto 6.0rem
+    width: 680px
+    & p+p
+      margin-top: 2.0rem
